@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/images/logo.png">
+    <!-- <img alt="Vue logo" src="./assets/images/logo.png"> -->
     <TodoList />
   </div>
 </template>
@@ -18,7 +18,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+  @import "./assets/style/styles.scss";
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
