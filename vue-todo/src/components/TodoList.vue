@@ -1,28 +1,20 @@
 <template>
   <div class="page-todo">
     <Header />
-    <main class="page-main">
-      <div class="container">
-        <Form />
-        <List />
-      </div>
-    </main>
-    <Footer />
+    <div class="container">
+      <Todos />
+    </div>
   </div>
 </template>
 <script lang="ts">
   import Vue from 'vue';
+  import Todos from './features/todos/todos.vue';
   import Header from './share/Header.vue';
-  import Footer from './share/Footer.vue';
-  import Form from './features/Form.vue';
-  import List from './features/List.vue';
   export default ({
     name: 'TodoApp',
     components: {
+      Todos,
       Header,
-      Footer,
-      Form,
-      List,
     },
   });
 </script>

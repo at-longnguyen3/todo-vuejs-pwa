@@ -6,3 +6,25 @@ $breakpoints: (
   large: 1024px,
   largest: 1280px
 );
+
+$color: (
+  primary: #7bb062,
+  secondary: #51b9e8,
+  border: #ededed,
+  border-secondary: #f3f3f3,
+  white: #ffffff,
+  text: #6D6D6D,
+  text-secondary: #909090,
+  text-muted: #D9D9D9,
+  grey: #f5f5f5,
+
+);
+
+$font-size: (
+  xs: 10px,
+  sm: 12px,
+  normal: 14px,
+  lg: 28px
+);
+
+$font-family-default: system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;

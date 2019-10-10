@@ -1,21 +1,17 @@
 <template>
   <div class="page-header">
-    <div class="container">
-      <div class="container header">
-        <div class="header-left">
-          <img src="../../assets/images/logo.png" alt="">
-        </div>
-        <div class="header-center">
-          <h3>Hello Todo!</h3>
-        </div>
-        <div class="header-right">
-          <a href="#">
-            <!-- <img class="img-covered" src="@/assets/images/user.jpg" alt=""> -->
-          </a>
-        </div>
-      </div>
-    </div>
+    <a class="page-logo">
+      <img class="logo desktop-only" src="../../assets/logo/logo-1x.png" alt="FUA PWA">
+      <img class="logo mobile-only" src="../../assets/logo/logo-2x.png" alt="FUA PWA">
+    </a>
+    <h1 class="page-title title-art insetshadow">
+      Todos
+    </h1>
+    <span class="nav-bar">
+      <i class="i-bars"></i>	
+    </span>
   </div>
+
 </template>
 <script lang="ts">
   export default ({
