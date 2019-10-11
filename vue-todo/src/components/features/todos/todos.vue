@@ -25,7 +25,8 @@
     },
     data() {
       return {
-        todos : []
+        todos: [],
+        filterTodos: [],
       };
     },
     created() {
@@ -34,48 +35,64 @@
     methods: {
       add(e) {
         this.todos = [e, ...this.todos];
-        this.saveTodosToLocalStorage(this.todos);
+        this.filterTodos = [...this.todos];
+        this.saveTodosToLocalStorage(this.filterTodos);
       },
       deleteTodo(e) {
-        console.log(123)
         this.todos = this.todos.filter(item => item.id !== e.id);
-        this.saveTodosToLocalStorage(this.todos);
+        let termDelete = JSON.parse(localStorage.getItem('todos'));
+        termDelete = termDelete.filter(item => {
+          return item.id !== e.id;
+        });
+        this.saveTodosToLocalStorage(termDelete);
       },
       saveTodosToLocalStorage(todos) {
         localStorage.setItem('todos', JSON.stringify(todos));
       },
       toggle(e) {
-        this.todo = this.todos.map(a => {
-          if(a.id === e.id) {
-            a.isCompleted = !a.isCompleted;
+        this.todos = this.todos.map(item => {
+          if (item.id === e.id) {
+            item.isCompleted = !item.isCompleted;
           }
+          return item
         });
-        localStorage.setItem('todos', JSON.stringify(this.todos));
+        let term = JSON.parse(localStorage.getItem('todos')).map(item => {
+          if (item.id === e.id) {
+            item.isCompleted = e.isCompleted;
+          }
+          return item;
+        });
+        this.saveTodosToLocalStorage(term);
       },
       onChange(e) {
-        console.log(e)
         switch(e) {
           case 'completed':
-            this.todos = JSON.parse(localStorage.getItem('todos'));
-            this.todos = this.todos.filter(item => {
+            this.todos = JSON.parse(localStorage.getItem('todos')).filter(item => {
               return item.isCompleted === true;
             });
+            // this.todos = termCompleted;
+            // localStorage.setItem('todos', JSON.stringify(this.todos));
             break;
           case 'active':
-            this.todos = JSON.parse(localStorage.getItem('todos'));
-            this.todos = this.todos.filter(item => {
+            this.todos = JSON.parse(localStorage.getItem('todos')).filter(item => {
               return item.isCompleted === false;
             });
+            // this.todos = termActive;
+            // localStorage.setItem('todos', JSON.stringify(this.todos));            
             break;
           case 'all':
             this.todos = JSON.parse(localStorage.getItem('todos'));
             break;
           case 'clear':
             this.todos = this.todos.filter(item => item.isCompleted === false);
-            this.saveTodosToLocalStorage(this.todos);
+            let termClear = JSON.parse(localStorage.getItem('todos'));
+            termClear = termClear.filter(item => {
+              return item.isCompleted === false;
+            });
+            this.saveTodosToLocalStorage(termClear);
             break;
-          default:
-            // code block
+          // default: this.saveTodosToLocalStorage(this.todos); 
+          //   break;
         }
       }
     },
