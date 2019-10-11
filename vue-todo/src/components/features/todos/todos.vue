@@ -69,20 +69,16 @@
           case 'completed':
             this.todos = JSON.parse(localStorage.getItem('todos')).filter(item => {
               return item.isCompleted === true;
-            });
-            // this.todos = termCompleted;
-            // localStorage.setItem('todos', JSON.stringify(this.todos));
-            break;
+            });  
+          break;
           case 'active':
             this.todos = JSON.parse(localStorage.getItem('todos')).filter(item => {
               return item.isCompleted === false;
-            });
-            // this.todos = termActive;
-            // localStorage.setItem('todos', JSON.stringify(this.todos));            
-            break;
+            });          
+          break;
           case 'all':
             this.todos = JSON.parse(localStorage.getItem('todos'));
-            break;
+          break;
           case 'clear':
             this.todos = this.todos.filter(item => item.isCompleted === false);
             let termClear = JSON.parse(localStorage.getItem('todos'));
@@ -90,9 +86,7 @@
               return item.isCompleted === false;
             });
             this.saveTodosToLocalStorage(termClear);
-            break;
-          // default: this.saveTodosToLocalStorage(this.todos); 
-          //   break;
+          break;
         }
       }
     },
