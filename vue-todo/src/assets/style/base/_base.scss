@@ -3,7 +3,7 @@
   -webkit-overflow-scrolling: touch;
 }
 html, body {
-  background: map-get($color, grey);
+  // background: map-get($color, grey);
   color: map-get($color, text);
   font-family: $font-family-default;
   font-size: 12px;

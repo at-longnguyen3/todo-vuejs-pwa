@@ -1,6 +1,7 @@
 <template>
   <div class="todos-header">
-    <i class="fas fa-chevron-down">&#xf078;</i>
+    <!-- <i class="icon-chevron-down1"></i> -->
+    <span class="add-icon"></span>
     <form class="form-add-task" @submit.prevent="addTodo()">
       <input  class="task-name" 
               placeholder="What needs to be done?" 

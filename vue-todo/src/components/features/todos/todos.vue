@@ -1,12 +1,13 @@
 <template>
   <div class="todos">
-    <todoHeader @addTodo="add($event)"/>
-    <todoItem v-for="(todo, index) in todos"
-              :todo="todo" 
-              @deleteMe="deleteTodo($event)"
-              @onToggle="toggle($event)"
-              />
-    <todoFooter @onFinish="onChange($event)" />
+    <div class="container">
+      <todoHeader @addTodo="add($event)"/>
+      <todoItem v-for="(todo, index) in todos"
+                :todo="todo" 
+                @deleteMe="deleteTodo($event)"
+                @onToggle="toggle($event)"/>
+      <todoFooter @onFinish="onChange($event)" />
+    </div>
   </div>
 </template>
 
@@ -83,5 +84,4 @@
 </script>
 
 <style lang="scss">
-  @import "./../../../assets/style/styles.scss";
 </style>
