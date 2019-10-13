@@ -2,7 +2,7 @@
 <div class="todos-main">
   <ul class="todo-list">
     <li class="todo-item animated bounceInDown faster">
-      <input type="checkbox" 
+      <input class="item-check" type="checkbox" 
              :checked="todo.isCompleted"
              @click="onToggle(todo)">
       <label class="item-name">{{ todo.name }}</label>
