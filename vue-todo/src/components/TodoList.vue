@@ -1,6 +1,3 @@
-
-
-
 <template>
 <div class="page-todo">
   <div class="todos">
@@ -80,7 +77,7 @@
       },
       onToggleAll() {
         this.todos.forEach(todo => {
-          todo.isCompleted = true;
+          todo.isCompleted = !todo.isCompleted;
           this.saveTodosToLocalStorage(this.todos);
         });
       },
