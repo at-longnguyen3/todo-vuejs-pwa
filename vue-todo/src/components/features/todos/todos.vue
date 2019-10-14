@@ -1,12 +1,14 @@
 <template>
   <div class="todos">
     <div class="container">
-      <todoHeader @addTodo="add($event)"/>
+      <todoHeader @addTodo="add($event)"
+                  @selectTodos="onToggleAll()"/>
       <todoItem v-for="(todo, index) in todos"
                 :todo="todo" 
                 @deleteMe="deleteTodo($event)"
                 @onToggle="toggle($event)"/>
-      <todoFooter @onFinish="onChange($event)" />
+      <todoFooter @onFinish="onChange($event)" 
+                  :counter="counter" />
     </div>
   </div>
 </template>
@@ -28,13 +30,16 @@
       return {
         todos: [],
         filterTodos: [],
+        counter: Number,
       };
     },
     created() {
       this.todos = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [];
+      this.countTodos();
     },
     methods: {
       add(e) {
+        this.todos = JSON.parse(localStorage.getItem('todos'));
         this.todos = [e, ...this.todos];
         this.filterTodos = [...this.todos];
         this.saveTodosToLocalStorage(this.filterTodos);
@@ -64,6 +69,19 @@
           return item;
         });
         this.saveTodosToLocalStorage(term);
+        this.countTodos();
+      },
+      onToggleAll() {
+        this.todos.forEach(todo => {
+          todo.isCompleted = true;
+          this.saveTodosToLocalStorage(this.todos);
+        });
+      },
+      countTodos() {
+        this.counter = this.todos.reduce((obj, item) => {
+          item.isCompleted ? obj.completed++ : obj.active++;
+          return obj;
+        }, { active: 0, completed: 0 });
       },
       onChange(e) {
         switch(e) {
@@ -89,6 +107,7 @@
             this.saveTodosToLocalStorage(termClear);
           break;
         }
+        this.countTodos();
       }
     },
   });

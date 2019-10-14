@@ -2,7 +2,8 @@
   <div class="todos-header">
     <!-- <i class="icon-chevron-down1"></i> -->
     <span class="add-icon"></span>
-    <form class="form-add-task" @submit.prevent="addTodo()">
+    <i class="form-add-task" @click="onToggleAll()"></i>
+    <form @submit.prevent="addTodo()">
       <input  class="task-name" 
               placeholder="What needs to be done?" 
               v-model="newTodo"
@@ -30,6 +31,9 @@
         }
         this.newTodo = '';
       },
+      onToggleAll() {
+        this.$emit('selectTodos');
+      }
     },
   };
 </script>

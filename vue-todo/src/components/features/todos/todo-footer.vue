@@ -2,7 +2,7 @@
   <div class="todos-footer">
     <ul class="todos-footer-toolbar">
       <li class="toolbar-item counter">	
-        <strong class="n-counter"></strong> item(s) left	
+        <strong class="n-counter">{{ counter.active }}</strong> item(s) left	
       </li>	
       <li class="toolbar-item">	
         <button class="toolbar-btn" @click="onFilter('all')">	
@@ -35,6 +35,7 @@
 <script lang="ts">
   export default {
     name: 'todoFooter',
+    props: ['counter'],
     methods: {
       // onFinish() {
       //   this.$emit('onFinish', '');
