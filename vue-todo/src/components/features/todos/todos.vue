@@ -7,7 +7,7 @@
                 :todo="todo" 
                 @deleteMe="deleteTodo($event)"
                 @onToggle="toggle($event)"/>
-      <todoFooter @onFinish="onChange($event)" 
+      <Footer @onFinish="onChange($event)" 
                   :counter="counter" />
     </div>
   </div>
@@ -17,14 +17,14 @@
   import Vue from 'vue';
   import todoHeader from './todo-header.vue';
   import todoItem from './todo-item.vue';
-  import todoFooter from './todo-footer.vue';
+  import Footer from './../../share/Footer.vue';
 
   export default ({
     name: 'Todos',
     components: {
       todoHeader,
       todoItem,
-      todoFooter
+      Footer
     },
     data() {
       return {
