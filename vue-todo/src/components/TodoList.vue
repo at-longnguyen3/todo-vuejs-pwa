@@ -2,13 +2,15 @@
 <div class="page-todo">
   <div class="todos">
     <Header />
-    <div class="container">
-      <todoHeader @addTodo="add($event)"
-                  @selectTodos="onToggleAll()"/>
-      <todoItem v-for="(todo, index) in todos"
-                :todo="todo" 
-                @deleteMe="deleteTodo($event)"
-                @onToggle="toggle($event)"/>
+    <div class="page-main">
+      <div class="container">
+        <todoHeader @addTodo="add($event)"
+                    @selectTodos="onToggleAll()"/>
+        <todoItem v-for="(todo, index) in todos"
+                  :todo="todo" 
+                  @deleteMe="deleteTodo($event)"
+                  @onToggle="toggle($event)"/>
+      </div>
     </div>
     <Footer @onFinish="onChange($event)" 
             :counter="counter"/>
@@ -47,6 +49,7 @@
         this.todos = [e, ...this.todos];
         this.filterTodos = [...this.todos];
         this.saveTodosToLocalStorage(this.filterTodos);
+        this.countTodos();
       },
       deleteTodo(e) {
         this.todos = this.todos.filter(item => item.id !== e.id);
@@ -77,8 +80,9 @@
       },
       onToggleAll() {
         this.todos.forEach(todo => {
-          todo.isCompleted = !todo.isCompleted;
+          todo.isCompleted = true;
           this.saveTodosToLocalStorage(this.todos);
+          this.countTodos();
         });
       },
       countTodos() {

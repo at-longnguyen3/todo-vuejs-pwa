@@ -24,24 +24,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-chevron-down1:before {
-  content: "\e903";
-}
-.icon-plus:before {
-  content: "\e904";
-}
-.icon-chevron-down:before {
-  content: "\e902";
-}
-.icon-check-square:before {
+.icon-check:before {
   content: "\e900";
 }
-.icon-check:before {
+.icon-trash:before {
   content: "\e901";
 }
-.icon-bin:before {
-  content: "\e9ac";
+.icon-remove:before {
+  content: "\e901";
 }
-.icon-list2:before {
-  content: "\e9bb";
+.icon-delete:before {
+  content: "\e901";
+}
+.icon-clipboard-remove:before {
+  content: "\e905";
+}
+.icon-document-time:before {
+  content: "\e902";
+}
+.icon-clipboard-list:before {
+  content: "\e903";
+}
+.icon-clipboard-checked:before {
+  content: "\e904";
 }

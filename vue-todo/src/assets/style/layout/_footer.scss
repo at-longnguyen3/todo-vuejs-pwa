@@ -1,0 +1,59 @@
+.todos-footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  background-color: map-get($color, white);
+  z-index: 99;
+  align-items: center;
+  box-shadow: 0 -0.3125rem 0.6125rem -0.3125rem #e6ecf1;
+  .todos-footer-toolbar {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    li {
+      width: calc(100% / 5);
+    }
+    .toolbar-item {
+      @include pxRem(padding, 30 0);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+      transition: color .3s linear;
+      &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        transition: all 0.3s ease-in-out;
+        background-color: map-get($color, orange);
+      }
+      &.active {
+        color: map-get($color, orange);
+        position: relative;
+        &::before {
+          width: 100%;
+        }
+      }
+      .toolbar-btn {
+        @include pxRem(padding, 3 8);
+        @include pxRem(border-radius, 3);
+        border: 1px solid transparent;
+        &:hover,
+        &.active {
+          border-color: map-get($color, primary);
+        }
+      }
+    }
+    i {
+      font-size: 18px;
+    }
+    p {
+      font-size: 14px;
+      @include pxRem(margin-top, 5);
+    }
+  }
+}

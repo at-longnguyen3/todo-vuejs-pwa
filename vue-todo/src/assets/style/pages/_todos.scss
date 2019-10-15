@@ -1,12 +1,12 @@
 button {
+  @include appearance(none);
+  @include font-smoothing(antialiased);
   margin: 0;
   padding: 0;
   border: 0;
   background: none;
   font-size: 100%;
   vertical-align: baseline;
-  @include appearance(none);
-  @include font-smoothing(antialiased);
   &:disabled {
     color: map-get($color, text-muted);
   }
@@ -23,11 +23,14 @@ input[type='checkbox'] {
   color: map-get($color, text-muted);
 }
 .login-btn {
+  @include pxRem(font-size, 32);
+  @include pxRem(padding, 30 60);
+  @include pxRem(border-radius, 5);
   background: map-get($color, primary);
   color: map-get($color, white);
-  font-size: convertPxToRem(32px);
-  padding: convertPxToRem(30px) convertPxToRem(60px);
-  border-radius: convertPxToRem(5px);
+  // font-size: convertPxToRem(32px);
+  // padding: convertPxToRem(30px) convertPxToRem(60px);
+  // border-radius: convertPxToRem(5px);
   position: fixed;
   width: 80%;
   left: 50%;
@@ -39,19 +42,54 @@ $todoTextLeftAlign: convertPxToRem(60px);
 .todos {
   position: relative;
   .todos-header {
+    @include pxRem(margin-bottom, 40);
     position: relative;
+    border: 1px solid #eee;
     .form-add-task {
-      margin-bottom: convertPxToRem(25px);
-      position: relative;
+      @include pxRem(margin-bottom, 25);
+      @include pxRem(width, 32);
+      @include pxRem(height, 32);
+      @include pxRem(line-height, 32);
+      @include pxRem(left, 15);
+      @include appearance(none);
+      text-align: center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      text-align: center;
+      border: 1px solid map-get($color, text-muted);
+      border-radius: 50%;
+      transition: all .2s ease-in-out;
+    }
+    .form-add-task-style {
+      @include pxRem(margin-bottom, 25);
+      @include pxRem(width, 32);
+      @include pxRem(height, 32);
+      @include pxRem(line-height, 32);
+      @include pxRem(left, 15);
+      @include appearance(none);
+      text-align: center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      text-align: center;
+      border: 1px solid map-get($color, text-muted);
+      border-radius: 50%;
+      transition: all .2s ease-in-out;
+      background-color: map-get($color, orange);
+      border: 1px solid map-get($color, orange);
       &::before {
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
-        left: 20px;
+        left: 10px;
         font-size: 20px;
         font-family: 'icomoon';
-        content: '\e904';
-        color: map-get($color, primary);
+        content: '\e900';
+        border-radius: 50%;
+        color: map-get($color, white);
       }
     }
     .icon-chevron-down1 {
@@ -60,107 +98,61 @@ $todoTextLeftAlign: convertPxToRem(60px);
       top: 20px;
     }
     .fa-chevron-down {
+      @include pxRem(height, 24);
+      @include pxRem(font-size, 24);
       left: 15px;
       position: absolute;
       top: 0;
       bottom: 0;
       margin: auto 0;
-      height: convertPxToRem(24px);
-      font-size: convertPxToRem(24px);
       display: block;
       font-family: "ipwa";
     }
     .task-name {
       @include font-smoothing(antialiased);
-      // height: convertPxToRem(50px);
-      font-size: convertPxToRem(24px);
-      padding: 10px 10px 10px 40px;
+      @include pxRem(font-size, 24);
+      @include pxRem(padding, 15 10 15 40);
       border: 1px solid #e2e2e2;
       position: relative;
-      // margin-left: 45px;
-      width: 100%;
-      // width: calc(100% - 45px);
+      left: 25px;
+      width: calc(100% - 50px);
       font-style: italic;
       transition: all .4s ease-in-out;
+      @include box-shadow(inset 0px 0px 8px 4px rgba(0, 0, 0, 0.03));
       &:focus {
-        border: 1px solid #ff9801;
+        border: 1px solid map-get($color, orange);
       }
     }
     .new-task {
+      @include pxRem(font-size, 48);
+      @include pxRem(right, 15);
       position: absolute;
-      right: 15px;
-      font-size: convertPxToRem(48px);
       top: 0;
       bottom: 0;
       margin: auto 0;
       color: map-get($color, primary);
     }
   }
+  .page-main {
+    @include pxRem(margin-bottom, 150);
+  }
   .todos-main {
     position: relative;
     z-index: 2;
     margin: 10px 0;
     .main-message {
-      font-size: convertPxToRem(14px);
-      padding: 25px 15px;
+      @include pxRem(font-size, 14);
+      @include pxRem(padding, 25 15);
       color: map-get($color, text-secondary);
       text-align: center;
       &:before {
+        @include pxRem(font-size, 40);
+        @include pxRem(margin-bottom, 8);
+        @include pxRem(padding-right, 8);
         display: block;
-        font-size: convertPxToRem(40px);
         color: map-get($color, text-muted);
-        margin-bottom: 8px;
         font-family: "icomoon";
         content: "\e904";
-        padding-right: convertPxToRem(8px);
-      }
-    }
-  }
-  .todos-footer {
-    position: relative;
-    padding: 10px 15px;
-    height: 50px;
-    border-top: 1px solid map-get($color, border);
-    display: flex;
-    align-items: center;
-    box-shadow: 0 -0.3125rem 0.3125rem -0.3125rem #e6ecf1;
-    
-    // &:before {
-    //   content: "";
-    //   position: absolute;
-    //   z-index: 0;
-    //   right: 0;
-    //   bottom: 0;
-    //   left: 0;
-    //   height: 50px;
-    //   overflow: hidden;
-    //   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
-    //               0 8px 0 -3px #f6f6f6,
-    //               0 9px 1px -3px rgba(0, 0, 0, 0.2),
-    //               0 16px 0 -6px #f6f6f6,
-    //               0 17px 2px -6px rgba(0, 0, 0, 0.2);
-    // }
-    .todos-footer-toolbar {
-      display: flex;
-      flex-grow: 5;
-      align-items: center;
-      .toolbar-item {
-        flex: 1 0;
-        text-align: center;
-        position: relative;
-        z-index: 1;
-        .toolbar-btn {
-          border: 1px solid transparent;
-          border-radius: 3px;
-          padding: 3px 8px;
-          &:hover,
-          &.active {
-            border-color: map-get($color, primary);
-          }
-        }
-        [class*="i-"] {
-          display: none;
-        }
       }
     }
   }
@@ -176,24 +168,21 @@ $todoTextLeftAlign: convertPxToRem(60px);
       }
     }
     .todo-item {
+      @include pxRem(font-size, 24);
+      @include pxRem(border-radius, 5);
       position: relative;
-      font-size: convertPxToRem(24px);
-      border: 1px solid map-get($color, primary);
+      border: 1px solid map-get($color, border);
       user-select: none;
-      border-radius: 5px;
-      // &:last-child {
-      //   border-bottom: none;
-      // }
       &:hover {
         .item-btn {
           display: block;
         }
       }
       .item-name {
+        @include pxRem(padding, 15 60 15 15);
+        @include pxRem(margin-left, 45);
         white-space: pre-line;
         word-break: break-all;
-        padding: 15px 60px 15px 15px;
-        margin-left: 45px;
         display: block;
         line-height: 1.2;
         text-align: left;
@@ -204,43 +193,43 @@ $todoTextLeftAlign: convertPxToRem(60px);
         }
       }
       .item-btn {
+        @include pxRem(right, 15);
+        @include pxRem(font-size, 20);
         display: none;
         position: absolute;
         top: 0;
-        right: 15px;
         bottom: 0;
         height: 100%;
-        font-size: 20px;
         color: map-get($color, text-muted);
         transition: color 0.1s ease-out;
         &:after {
           font-family: "icomoon";
-          content: "\e9ac";
+          content: "\e901";
         }
       }
     }
   }
   .item-check {
+    @include pxRem(width, 32);
+    @include pxRem(height, 32);
+    @include pxRem(line-height, 32);
+    @include pxRem(left, 15);
     text-align: center;
-    width: convertPxToRem(32px);
-    height: convertPxToRem(32px);
-    line-height: convertPxToRem(32px);
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 15px;
     margin: auto 0;
     text-align: center;
     border: 1px solid map-get($color, text-muted);
     border-radius: 50%;
     @include appearance(none);
-    transition: all .2s ease-in-out;
+    // transition: all .2s ease-in-out;
     &:checked {
-      border: 1px solid #ff9801;
-      background-color: #ff9801;
+      border: 1px solid map-get($color, orange);
+      background-color: map-get($color, orange);
       &:after {
         color: map-get($color, white);
-        content: "\e901";
+        content: "\e900";
         visibility: inherit;
       }
       + .item-name {
@@ -249,8 +238,8 @@ $todoTextLeftAlign: convertPxToRem(60px);
       }
     }
     &:after {
-      left: convertPxToRem(2px);
-      font-size: convertPxToRem(25px);
+      @include pxRem(left, 2);
+      @include pxRem(font-size, 25);
       position: absolute;
       top: 0;
       bottom: 0;
@@ -258,9 +247,29 @@ $todoTextLeftAlign: convertPxToRem(60px);
       display: block;
       visibility: hidden;
       font-family: "icomoon";
-      content: "\e901";
-      transition: all 0.2s ease-in-out;
+      content: "\e900";
+      // transition: all 0.2s ease-in-out;
       color: map-get($color, text-muted);
+    }
+  }
+}
+
+@include respond-below("small") {
+  .todos {
+    .todos-header {
+      .task-name {
+        @include pxRem(padding-left, 15);
+      }
+    }
+    .todos-footer {
+      .todos-footer-toolbar {
+        p {
+          display: none;
+        }
+        i {
+          font-size: 22px;
+        }
+      }
     }
   }
 }

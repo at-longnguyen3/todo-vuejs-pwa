@@ -1,5 +1,6 @@
 .page-header {
-  margin-bottom: convertPxToRem(30px);
+  @include pxRem(margin-bottom, 30);
+  // margin-bottom: convertPxToRem(30px);
   text-align: center;
   position: relative;
   padding: 15px;
@@ -19,7 +20,8 @@
     align-items: center;
   }
   .avata-user {
-    width: convertPxToRem(60px);
+    @include pxRem(width, 60);
+    // width: convertPxToRem(60px);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -34,9 +36,18 @@
     .nav-bar {
       display: none;
     }
+    
   }
 }
-@include respond-below("medium") {
+@include respond-below("small") {
+  .page-header {
+    .content-header {
+      @include pxRem(padding, 0);
+    }
+    .page-title {
+      font-size: 15px;
+    }
+  }
   // .page-header {
   //   display: flex;
   //   align-items: center;
