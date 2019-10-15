@@ -1,14 +1,12 @@
 <template>
   <div class="todos-header">
     <!-- <i class="icon-chevron-down1"></i> -->
-    <span class="add-icon"></span>
-    <i class="form-add-task" @click="onToggleAll()"></i>
+    <span class="form-add-task-style" @click="onToggleAll()"></span>
     <form @submit.prevent="addTodo()">
       <input  class="task-name" 
-              placeholder="What needs to be done?" 
+              placeholder="Add item ... " 
               v-model="newTodo"
               value="">
-      <button class="new-task mobile-only"><i class="i-plus"></i></button>
     </form>	
   </div>
 </template>
