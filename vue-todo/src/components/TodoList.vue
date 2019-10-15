@@ -13,7 +13,8 @@
       </div>
     </div>
     <Footer @onFinish="onChange($event)" 
-            :counter="counter"/>
+            :counter="counter"
+            :action="action"/>
   </div>
 </div>
 </template>
@@ -37,6 +38,7 @@
         todos: [],
         filterTodos: [],
         counter: Number,
+        action: '',
       };
     },
     created() {
@@ -50,6 +52,7 @@
         this.filterTodos = [...this.todos];
         this.saveTodosToLocalStorage(this.filterTodos);
         this.countTodos();
+        this.action = 'all';
       },
       deleteTodo(e) {
         this.todos = this.todos.filter(item => item.id !== e.id);
@@ -92,7 +95,8 @@
         }, { active: 0, completed: 0 });
       },
       onChange(e) {
-        switch(e) {
+        this.action = e;
+        switch(this.action) {
           case 'completed':
             this.todos = JSON.parse(localStorage.getItem('todos')).filter(item => {
               return item.isCompleted === true;
