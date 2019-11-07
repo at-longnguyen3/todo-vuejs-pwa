@@ -27,11 +27,14 @@
 <script lang="ts">
   export default {
     name: 'Footer',
-    props: ['counter'],
+    props: ['counter','action'],
     data() {
       return {
         visibility: 'all',
       };
+    },
+    updated() {
+      this.visibility = this.action;
     },
     methods: {
       onFilter(e) {

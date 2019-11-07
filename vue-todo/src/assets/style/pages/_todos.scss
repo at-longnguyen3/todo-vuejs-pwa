@@ -200,7 +200,7 @@ $todoTextLeftAlign: convertPxToRem(60px);
         top: 0;
         bottom: 0;
         height: 100%;
-        color: map-get($color, text-muted);
+        color: map-get($color, text);
         transition: color 0.1s ease-out;
         &:after {
           font-family: "icomoon";

@@ -13,7 +13,8 @@
       </div>
     </div>
     <Footer @onFinish="onChange($event)" 
-            :counter="counter"/>
+            :counter="counter"
+            :action="action"/>
   </div>
 </div>
 </template>
@@ -37,6 +38,7 @@
         todos: [],
         filterTodos: [],
         counter: Number,
+        action: '',
       };
     },
     created() {
@@ -45,18 +47,31 @@
     },
     methods: {
       add(e) {
-        this.todos = JSON.parse(localStorage.getItem('todos'));
-        this.todos = [e, ...this.todos];
-        this.filterTodos = [...this.todos];
-        this.saveTodosToLocalStorage(this.filterTodos);
-        this.countTodos();
+        if (JSON.parse(localStorage.getItem('todos'))) {
+          this.todos = JSON.parse(localStorage.getItem('todos'));
+          this.todos = [e, ...this.todos];
+          this.filterTodos = [...this.todos];
+          this.saveTodosToLocalStorage(this.filterTodos);
+          this.countTodos();
+          this.action = 'all';
+        } else {
+          this.todos = [e, ...this.todos];
+          this.filterTodos = [...this.todos];
+          this.saveTodosToLocalStorage(this.filterTodos);
+          this.countTodos();
+          this.action = 'all';
+        }
       },
       deleteTodo(e) {
-        this.todos = this.todos.filter(item => item.id !== e.id);
+        if(this.todos) {
+          this.todos = this.todos.filter(item => item.id !== e.id);
+        }
         let termDelete = JSON.parse(localStorage.getItem('todos'));
-        termDelete = termDelete.filter(item => {
-          return item.id !== e.id;
-        });
+        if(termDelete) {
+          termDelete = termDelete.filter(item => {
+            return item.id !== e.id;
+          });
+        }
         this.saveTodosToLocalStorage(termDelete);
       },
       saveTodosToLocalStorage(todos) {
@@ -86,32 +101,43 @@
         });
       },
       countTodos() {
-        this.counter = this.todos.reduce((obj, item) => {
-          item.isCompleted ? obj.completed++ : obj.active++;
-          return obj;
-        }, { active: 0, completed: 0 });
+        if(this.todos) {
+          this.counter = this.todos.reduce((obj, item) => {
+            item.isCompleted ? obj.completed++ : obj.active++;
+            return obj;
+          }, { active: 0, completed: 0 });
+        }
       },
       onChange(e) {
-        switch(e) {
+        this.action = e;
+        switch(this.action) {
           case 'completed':
+          if(JSON.parse(localStorage.getItem('todos'))) {
             this.todos = JSON.parse(localStorage.getItem('todos')).filter(item => {
               return item.isCompleted === true;
             });  
+          }
           break;
           case 'active':
-            this.todos = JSON.parse(localStorage.getItem('todos')).filter(item => {
-              return item.isCompleted === false;
-            });          
+            if(JSON.parse(localStorage.getItem('todos'))) {
+              this.todos = JSON.parse(localStorage.getItem('todos')).filter(item => {
+                return item.isCompleted === false;
+              });          
+            }
           break;
           case 'all':
             this.todos = JSON.parse(localStorage.getItem('todos'));
           break;
           case 'clear':
-            this.todos = this.todos.filter(item => item.isCompleted === false);
+            if(this.todos) {
+              this.todos = this.todos.filter(item => item.isCompleted === false);
+            }
             let termClear = JSON.parse(localStorage.getItem('todos'));
-            termClear = termClear.filter(item => {
-              return item.isCompleted === false;
-            });
+            if(termClear) {
+              termClear = termClear.filter(item => {
+                return item.isCompleted === false;
+              });
+            }
             this.saveTodosToLocalStorage(termClear);
           break;
         }
