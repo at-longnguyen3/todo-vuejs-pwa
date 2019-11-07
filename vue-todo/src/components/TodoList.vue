@@ -47,6 +47,7 @@
     },
     methods: {
       add(e) {
+<<<<<<< HEAD
         if (JSON.parse(localStorage.getItem('todos'))) {
           this.todos = JSON.parse(localStorage.getItem('todos'));
           this.todos = [e, ...this.todos];
@@ -61,6 +62,14 @@
           this.countTodos();
           this.action = 'all';
         }
+=======
+        this.todos = JSON.parse(localStorage.getItem('todos'));
+        this.todos = [e, ...this.todos];
+        this.filterTodos = [...this.todos];
+        this.saveTodosToLocalStorage(this.filterTodos);
+        this.countTodos();
+        this.action = 'all';
+>>>>>>> bab971aec931b57ef8f3b49500a19528ae4e3e1a
       },
       deleteTodo(e) {
         if(this.todos) {
