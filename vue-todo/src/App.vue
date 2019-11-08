@@ -1,18 +1,19 @@
 <template>
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/images/logo.png"> -->
-    <TodoList />
+    <router-view />
   </div>
 </template>
 
 <script>
-import TodoList from './components/TodoList.vue'
+// import TodoList from './components/TodoList.vue'
+
 // import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'app',
   components: {
-    TodoList
+    // TodoList
     // HelloWorld
   }
 }
