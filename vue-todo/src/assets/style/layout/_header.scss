@@ -16,8 +16,12 @@
     max-width: 100%;
   }
   .page-title {
-    display: flex;
-    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    // display: flex;
+    // align-items: center;
   }
   .avata-user {
     @include pxRem(width, 60);
@@ -29,6 +33,25 @@
       width: 100%;
     border-radius: 50%;
     }
+  }
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: -30px;
+    top: 85px;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
   }
 }
 @include respond-above("medium") {

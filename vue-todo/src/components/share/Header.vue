@@ -7,9 +7,16 @@
           <img class="logo mobile-only" src="../../assets/logo/logo-2x.png" alt="FUA PWA">
         </a>
         <h1 class="page-title title-art insetshadow">Todos List</h1>
-        <div class="avata-user">
-          <!-- <router-link class="login100-form-btn" to="/login">Sign in</router-link> -->
+        <div class="avata-user dropdown">
           <img src="./../../assets/images/user.jpg" alt="user">
+          <ul class="dropdown-content">
+            <li>
+              <a href="#">MyPage</a>
+            </li>
+            <li>
+              <router-link to="/login">Logout</router-link>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
