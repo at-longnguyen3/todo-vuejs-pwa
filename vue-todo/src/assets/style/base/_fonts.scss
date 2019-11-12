@@ -36,37 +36,43 @@
   content: "\e903";
 }
 .icon-clipboard-checked:before {
-  content: "\e904";
-}
-.icon-clipboard-remove:before {
   content: "\e905";
 }
-.icon-check1:before {
+.icon-clipboard-remove:before {
   content: "\e906";
 }
+.icon-chevron-down:before {
+  content: "\e904";
+}
+.icon-more-horizontal:before {
+  content: "\e90e";
+}
+.icon-check1:before {
+  content: "\e907";
+}
 .icon-trash1:before {
-  content: "\e907";
-}
-.icon-remove:before {
-  content: "\e907";
-}
-.icon-delete:before {
-  content: "\e907";
-}
-.icon-clipboard-remove1:before {
   content: "\e908";
 }
-.icon-document-time1:before {
+.icon-remove:before {
+  content: "\e908";
+}
+.icon-delete:before {
+  content: "\e908";
+}
+.icon-clipboard-remove1:before {
   content: "\e909";
 }
-.icon-clipboard-list1:before {
+.icon-document-time1:before {
   content: "\e90a";
 }
-.icon-clipboard-checked1:before {
+.icon-clipboard-list1:before {
   content: "\e90b";
 }
-.icon-note-checked:before {
+.icon-clipboard-checked1:before {
   content: "\e90c";
+}
+.icon-note-checked:before {
+  content: "\e90d";
 }
 .icon-google:before {
   content: "\ea88";
@@ -77,4 +83,3 @@
 .icon-twitter:before {
   content: "\ea96";
 }
-
