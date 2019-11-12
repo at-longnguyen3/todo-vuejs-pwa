@@ -13,7 +13,7 @@
         <p>Active</p>
       </li>	
       <li class="toolbar-item" @click="onFilter('completed')" :class="{active:visibility == 'completed'}">	
-        <i class="iconf-clipboard-checked"></i>	
+        <i class="icon-clipboard-checked"></i>
         <p>Completed</p>
       </li>	
       <li class="toolbar-item" @click="onFilter('clear')" :class="{active:visibility == 'clear'}">	

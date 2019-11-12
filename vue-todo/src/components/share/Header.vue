@@ -7,9 +7,16 @@
           <img class="logo mobile-only" src="../../assets/logo/logo-2x.png" alt="FUA PWA">
         </a>
         <h1 class="page-title title-art insetshadow">Todos List</h1>
-        <div class="avata-user">
-          <!-- <router-link class="login100-form-btn" to="/login">Sign in</router-link> -->
+        <div class="avata-user dropdown" v-if="checkImg">
           <img src="./../../assets/images/user.jpg" alt="user">
+          <ul class="dropdown-content">
+            <li>
+              <a href="#">MyPage</a>
+            </li>
+            <li>
+              <a href="/login" @click="logout()">Logout</a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -19,5 +26,18 @@
 <script lang="ts">
   export default ({
     name: 'Header',
+    data() {
+      return {
+        checkImg: '',
+      };
+    },
+    created() {
+      this.checkImg = localStorage.getItem('checkImg') ? JSON.parse(localStorage.getItem('checkImg')) : '';
+    },
+    methods: {
+      logout() {
+        localStorage.clear();
+      }
+    },
   });
 </script>
