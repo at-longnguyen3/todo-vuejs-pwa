@@ -148,6 +148,12 @@
           name: e.name,
           isCompleted: !e.isCompleted
         });
+        this.todos = this.todos.map(item => {
+          if(item.id === e.id) {
+            item.isCompleted = !item.isCompleted;
+          }
+          return item;
+        })
       },
       onToggleAll() {
         this.todos.forEach(todo => {
