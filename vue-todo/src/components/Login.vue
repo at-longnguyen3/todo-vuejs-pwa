@@ -109,9 +109,7 @@ export default {
         localStorage.setItem('userId', result.user.uid);
         localStorage.setItem('checkImg', 1);
         this.$router.replace('/todo-app');
-      }).catch(function(error) {
-        console.log(error);
-      });
+      })
     },
 
     loginGg: function() {
