@@ -130,4 +130,10 @@ button:hover {
 iframe {
 	border: none !important;
 }
-
+button:disabled {
+	color: #999 !important;
+	background-color:  #D9D9D9 !important;
+	// &:hover {
+	// 	color: #D9D9D9 !important;
+	// }
+}

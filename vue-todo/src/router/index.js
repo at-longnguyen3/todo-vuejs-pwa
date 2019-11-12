@@ -6,7 +6,7 @@ import TodoApp from '../components/TodoList'
 
 Vue.use(Router)
 const router = new Router({
-  base: '/',
+  // base: '/',
   mode: 'history',
   routes: [
     {
