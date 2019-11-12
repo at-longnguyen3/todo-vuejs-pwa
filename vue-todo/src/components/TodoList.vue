@@ -67,7 +67,6 @@
             });
           });
           this.filterTodos = [...this.todos];
-          // this.reactiveMess('all', this.todos);
         })
         .catch((error) => {
           console.log(error);
@@ -100,7 +99,6 @@
             isCompleted: false
           });
           this.filterTodos = this.todos;
-          console.log(this.todos)
           // this.$refs.inputTodo.newTodo = '';
           // this.reactiveMess('all', this.todos);
         })
@@ -167,7 +165,6 @@
         }
       },
       onChange(e) {
-        console.log(this.todos)
         let filtered = this.todos;
         this.action = e;
         switch(this.action) {
@@ -191,7 +188,6 @@
           case 'all':
             // this.todos = JSON.parse(localStorage.getItem('todos'));
             this.todos = this.filterTodos;
-            // this.getTodo();
           break;
           case 'clear':
             // if(this.todos) {
@@ -215,8 +211,6 @@
               });
               batch.commit().then(() => {
                 this.todos = this.filterTodos = this.filterTodos.filter((e) => !e.isCompleted);
-                console.log(this.todos)
-                // this.filterTodo(this.currentFilter);
               });
             })
           break;
