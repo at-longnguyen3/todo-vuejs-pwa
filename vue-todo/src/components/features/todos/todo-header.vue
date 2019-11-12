@@ -1,7 +1,7 @@
 <template>
   <div class="todos-header">
     <!-- <i class="icon-chevron-down1"></i> -->
-    <span class="form-add-task-style" @click="onToggleAll()"></span>
+    <!-- <span class="form-add-task-style" @click="onToggleAll()"></span> -->
     <form @submit.prevent="addTodo()">
       <input  class="task-name" 
               placeholder="Add item ... " 
