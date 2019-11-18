@@ -8,7 +8,7 @@
         </a>
         <h1 class="page-title title-art insetshadow">Todos List</h1>
         <div class="button-logout" v-if="checkImg">
-          <router-link class="" to="/login">Logout</router-link>
+          <a @click="logout()"> Logout</a>
         </div>
         </div>
       </div>
@@ -31,6 +31,7 @@
     methods: {
       logout() {
         localStorage.clear();
+        this.$router.replace("/login");
       },
       showMenu() {
         this.checkMenu = !this.checkMenu;

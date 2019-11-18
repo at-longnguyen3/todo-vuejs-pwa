@@ -25,6 +25,7 @@
   import Footer from './share/Footer.vue';
   import Header from './share/Header.vue';
   import firebase from 'firebase';
+  import { todosService } from '../service/todos.service.js'
 
   export default ({
     name: 'TodoApp',
@@ -36,6 +37,7 @@
     },
     data() {
       return {
+        todosService: new todosService(),
         todos: [],
         filterTodos: [],
         counter: Number,
@@ -48,7 +50,7 @@
     },
     methods: {
       getTodo: function() {
-        firebase.firestore().collection("todos").where('userId', '==', localStorage.getItem('userId'))
+        this.todosService.getTodo()
         .get()
         .then((data) => {
           data.forEach((doc) => {
@@ -58,11 +60,6 @@
               isCompleted: doc.data().isCompleted,
             }
             this.todos.push(obj);
-            console.log({
-              id: doc.id,
-              name: doc.data().name,
-              isCompleted: doc.data().isCompleted,
-            });
           });
           this.filterTodos = [...this.todos];
         })
@@ -71,11 +68,7 @@
         })
       },
       add(e) {
-        firebase.firestore().collection("todos").add({
-          name: e.name,
-          isCompleted: false,
-          userId: localStorage.getItem('userId')
-        })
+        this.todosService.addTodo(e)
         .then((res) => {
           this.todos.push({
             id: res.id,
@@ -89,7 +82,7 @@
         })
       },
       deleteTodo(e) {
-        firebase.firestore().collection("todos").doc(e.id).delete()
+        this.todosService.deleteTodo(e)
         .then(() => {
           this.todos.splice(this.todos.indexOf(e), 1);
         })
@@ -98,11 +91,7 @@
         })
       },
       toggle(e) {
-        firebase.firestore().collection("todos").doc(e.id).set({
-          userId: localStorage.getItem('userId'),
-          name: e.name,
-          isCompleted: !e.isCompleted
-        });
+        this.todosService.toggleTodo(e);
         this.todos = this.todos.map(item => {
           if(item.id === e.id) {
             item.isCompleted = !item.isCompleted;
@@ -110,13 +99,13 @@
           return item;
         })
       },
-      onToggleAll() {
-        this.todos.forEach(todo => {
-          todo.isCompleted = true;
-          this.saveTodosToLocalStorage(this.todos);
-          this.countTodos();
-        });
-      },
+      // onToggleAll() {
+      //   this.todos.forEach(todo => {
+      //     todo.isCompleted = true;
+      //     this.saveTodosToLocalStorage(this.todos);
+      //     this.countTodos();
+      //   });
+      // },
       countTodos() {
         if(this.todos) {
           this.counter = this.todos.reduce((obj, item) => {
@@ -139,9 +128,7 @@
             this.todos = this.filterTodos;
           break;
           case 'clear':
-            firebase.firestore().collection('todos')
-            .where('isCompleted', '==', true)
-            .where('userId', '==', localStorage.getItem('userId'))
+            this.todosService.clearActive(e)
             .get()
             .then((querySnapshot) => {
               const batch = firebase.firestore().batch();
