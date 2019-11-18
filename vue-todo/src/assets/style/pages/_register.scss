@@ -1,8 +1,14 @@
 .register-page {
   .limiter {
     .login100-form-btn {
-      width: 43%;
       margin: 0 10px;
+    }
+  }
+  .login-now {
+    span {
+      font-size: 15px;
+      color: #999999;
+      line-height: 1.5;
     }
   }
 }

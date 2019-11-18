@@ -23,56 +23,53 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-check:before {
-  content: "\e900";
+.icon-menu:before {
+  content: "\e910";
 }
-.icon-trash:before {
+.icon-check:before {
   content: "\e901";
 }
-.icon-document-time:before {
+.icon-trash:before {
   content: "\e902";
 }
-.icon-clipboard-list:before {
+.icon-document-time:before {
   content: "\e903";
 }
-.icon-clipboard-checked:before {
-  content: "\e905";
-}
-.icon-clipboard-remove:before {
-  content: "\e906";
-}
-.icon-chevron-down:before {
+.icon-clipboard-list:before {
   content: "\e904";
 }
-.icon-more-horizontal:before {
-  content: "\e90e";
+.icon-chevron-down:before {
+  content: "\e905";
 }
-.icon-check1:before {
+.icon-clipboard-checked:before {
+  content: "\e906";
+}
+.icon-clipboard-remove:before {
   content: "\e907";
 }
+.icon-check1:before {
+  content: "\e908";
+}
 .icon-trash1:before {
-  content: "\e908";
-}
-.icon-remove:before {
-  content: "\e908";
-}
-.icon-delete:before {
-  content: "\e908";
-}
-.icon-clipboard-remove1:before {
   content: "\e909";
 }
-.icon-document-time1:before {
+.icon-clipboard-remove1:before {
   content: "\e90a";
 }
-.icon-clipboard-list1:before {
+.icon-document-time1:before {
   content: "\e90b";
 }
-.icon-clipboard-checked1:before {
+.icon-clipboard-list1:before {
   content: "\e90c";
 }
-.icon-note-checked:before {
+.icon-clipboard-checked1:before {
   content: "\e90d";
+}
+.icon-note-checked:before {
+  content: "\e90e";
+}
+.icon-more-horizontal:before {
+  content: "\e90f";
 }
 .icon-google:before {
   content: "\ea88";
@@ -82,4 +79,16 @@
 }
 .icon-twitter:before {
   content: "\ea96";
+}
+.icon-home:before {
+  content: "\e900";
+}
+.icon-cog:before {
+  content: "\e994";
+}
+.icon-bin:before {
+  content: "\e9ac";
+}
+.icon-exit:before {
+  content: "\ea14";
 }

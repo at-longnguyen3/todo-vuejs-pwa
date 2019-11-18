@@ -3,13 +3,11 @@
     width: 100%;
     margin: 50px auto 50px;
     .txt1 {
-      font-family: Poppins-Regular;
       font-size: 15px;
       color: #999999;
       line-height: 1.5;
     }
     .txt2 {
-      font-family: Poppins-Regular;
       font-size: 15px;
       color: map-get($color, orange);
       line-height: 1.5;
@@ -37,7 +35,6 @@
     
     .login100-form-title {
       display: block;
-      font-family: Poppins-Bold;
       font-size: 39px;
       color: #333333;
       line-height: 1.2;
@@ -64,7 +61,6 @@
       border-bottom: 2px solid #d9d9d9;
     }
     .input100 {
-      font-family: Poppins-SemiBold;
       font-size: 18px;
       color: #555555;
       line-height: 1.2;
