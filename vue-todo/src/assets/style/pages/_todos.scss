@@ -203,7 +203,7 @@ $todoTextLeftAlign: convertPxToRem(60px);
         transition: color 0.1s ease-out;
         &:after {
           font-family: "icomoon";
-          content: "\e901";
+          content: "\e902";
         }
       }
     }
@@ -228,7 +228,7 @@ $todoTextLeftAlign: convertPxToRem(60px);
       background-color: map-get($color, orange);
       &:after {
         color: map-get($color, white);
-        content: "\e900";
+        content: "\e901";
         visibility: inherit;
       }
       + .item-name {
