@@ -28,12 +28,12 @@
             <div>
               <ul class="list-share">
                 <li class="facebook">
-                  <a class="login100-social-item bg1" @click="loginFb()">
+                  <a class="login100-social-item bg1" @click="users.loginFb()">
                     <i class="icon-facebook"></i>
                   </a>
                 </li>
                 <li class="google">
-                  <a href="#" class="login100-social-item bg3" @click="loginGg()">
+                  <a href="#" class="login100-social-item bg3" @click="users.loginGg()">
                     <i class="icon-google"></i>
                   </a>
                 </li>
@@ -59,8 +59,10 @@
 
 <script>
 
-import Header from './share/Header.vue';
+import Header from './../share/Header.vue';
 import firebase from 'firebase';
+import { UsersService } from '../../service/users.service.js'
+import { firestore, auth } from '../../service/configFirebase.js'
 
 export default {
   name: 'Login',
@@ -69,61 +71,16 @@ export default {
   },
   data() {
     return {
+      users: new UsersService(),
       username: '',
       password: '',
     }
   },
   methods: {
     login() {
-      // firebase.auth().signInWithEmailAndPassword(this.username, this.password).then(
-      //   (user) => {
-      //     alert('Well done ! You are now connected');
-      //     this.$router.replace('/todo-app');
-      //   },
-      //   (err) => {
-      //     alert('0ops.' + err.message)
-      //   }
-      // );
-
-       firebase.auth().signInWithEmailAndPassword(this.username.trim(), this.password.trim())
-        .then(() => {
-          firebase.auth().currentUser.getIdToken()
-          .then((idToken) => {
-            localStorage.setItem('token', idToken);
-            localStorage.setItem('userId', firebase.auth().currentUser.uid);
-            localStorage.setItem('checkImg', 1);
-            alert('Well done ! You are now connected');
-            this.$router.replace('/todo-app');
-          })
-        })
-        .catch((error) => {
-          alert('0ops.' + error.message)
-        })
-    },
-
-    loginFb: function() {
-      const provider = new firebase.auth.FacebookAuthProvider();
-      firebase.auth().signInWithPopup(provider).then((result) => {
-        console.log(result);
-        localStorage.setItem('token', result.credential.accessToken);
-        localStorage.setItem('userId', result.user.uid);
-        localStorage.setItem('checkImg', 1);
-        this.$router.replace('/todo-app');
-      })
-    },
-
-    loginGg: function() {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider).then((result) => {
-        localStorage.setItem('token', result.credential.accessToken);
-        localStorage.setItem('userId', result.user.uid);
-        localStorage.setItem('checkImg', 1);
-        this.$router.replace('/todo-app');
-      }).catch((error) => {
-        console.log(error);
-      });
-    },
-  },
+      this.users.signIn(this.username.trim(), this.password.trim());
+    }
+  }
 }
 
 </script>

@@ -12,9 +12,9 @@ export default class Todo {
 
   toJson() {
     return {
-      "id": this.id,
-      "name": this.name,
-      "isCompleted": this.isCompleted,
+      'id': this.id,
+      'name': this.name,
+      'isCompleted': this.isCompleted,
     }
   }
 
