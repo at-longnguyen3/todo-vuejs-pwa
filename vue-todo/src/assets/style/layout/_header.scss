@@ -1,14 +1,13 @@
 .page-header {
   @include pxRem(margin-bottom, 30);
-  // margin-bottom: convertPxToRem(30px);
+  padding: 15px 0;
   text-align: center;
   position: relative;
-  padding: 15px;
   background: #ff9801;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   .content-header {
-    padding: 0 15px;
     display: flex;
+    padding: 0 15px;
     justify-content: space-between;
   }
   .logo {
@@ -16,22 +15,25 @@
     max-width: 100%;
   }
   .page-title {
-    position: absolute;
-    left: 50%;
     top: 50%;
+    left: 50%;
+    position: absolute;
     transform: translate(-50%, -50%);
-    // display: flex;
-    // align-items: center;
   }
   .avata-user {
-    @include pxRem(width, 60);
-    // width: convertPxToRem(60px);
-    border-radius: 50%;
     display: flex;
+    border-radius: 50%;
     align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+    .back-home {
+      top: 0;
+      right: 0;
+      position: absolute;
+    }
     img {
       width: 100%;
-    border-radius: 50%;
+      border-radius: 50%;
     }
   }
   .dropdown {
@@ -40,47 +42,58 @@
   .thumb-avata {
     position: relative;
     cursor: pointer;
-    .opacity {
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      top: 50%;
-      left: 50%;  
-      border-radius: 50%; 
-      transform: translate(-50%, -50%);   
-      opacity: 0;
-      z-index: 99999;
-      background: #f3983eab;
-      transition: all ease-in-out 0.4s;
-      i {
-        line-height: 45px;
-        font-size: 20px;
-      }
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+  }
+  .menu-profile {
+    display: flex;
+    align-items: center;
+    i {
+      font-size: 30px;
+      color: map-get($color, white);
     }
-    &:hover {
-      .opacity {
-        opacity: 1;
-      }
+  }
+  .box-profile {
+    position: relative;
+    height: 100%;
+    .button-login {
+      position: absolute;
+      bottom: 20%;
+      right: 20px;
     }
   }
   .thumb-avata {
     position: relative;
   }
-
+  .content-profile {
+    .mail-user {
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+  .button-logout {
+    display: flex;
+    align-items: center;
+    padding-right: 5px;
+    a {
+      font-size: 15px;
+      color: map-get($color,white);
+    }
+  }
   .dropdown-content {
     position: absolute;
-    right: -30px;
-    top: 73px;
+    right: 0;
+    top: 0;
+    margin-top: 100px;
     background-color: #f9f9f9;
-    min-width: 120px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
+    width: 100%;
+    height: 85vh;
+    box-shadow: 0px 3px 15px 0px rgba(0,0,0,0.2);
+    padding: 30px 15px;
+    z-index: 99;
   }
-
-  // .dropdown:hover .dropdown-content {
-  //   display: block;
-  // }
 }
 @include respond-above("medium") {
   .page-header {

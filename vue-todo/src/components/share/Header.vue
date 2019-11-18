@@ -7,21 +7,9 @@
           <img class="logo mobile-only" src="../../assets/logo/logo-2x.png" alt="FUA PWA">
         </a>
         <h1 class="page-title title-art insetshadow">Todos List</h1>
-        <div class="avata-user">
-          <div class="thumb-avata" @click="showMenu()" v-if="checkImg">
-            <img src="./../../assets/images/user.jpg" alt="user">
-            <div class="opacity">
-              <i class="icon-more-horizontal"></i>
-            </div>
-            <ul class="dropdown-content" v-if="checkMenu">
-              <li>
-                <a href="#">MyPage</a>
-              </li>
-              <li>
-                <a href="/login" @click="logout()">Logout</a>
-              </li>
-            </ul>
-          </div>
+        <div class="button-logout" v-if="checkImg">
+          <router-link class="" to="/login">Logout</router-link>
+        </div>
         </div>
       </div>
     </div>

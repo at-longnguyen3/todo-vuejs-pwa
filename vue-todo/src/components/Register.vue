@@ -21,7 +21,11 @@
              <p class="error" v-if="checkPass">The password and confirm password must be the same</p>
             <div class="container-login100-form-btn flex-col-c">
               <button type="button" class="login100-form-btn" @click="signUp()" :disabled="checkPass">Submit</button>
-              <router-link class="login100-form-btn" to="/login">Sign in</router-link>
+              <!-- <router-link class="login100-form-btn" to="/login">Login</router-link> -->
+            </div>
+            <div class="login-now">
+              <span>You are already in account?</span>
+              <router-link class="" to="/login"> Login Now</router-link>
             </div>
           </form>
         </div>
