@@ -18,7 +18,7 @@
   </div>
 </div>
 </template>
-<script lang="ts">
+<script>
   import Vue from 'vue';
   import todoHeader from './features/todos/todo-header.vue';
   import todoItem from './features/todos/todo-item.vue';
@@ -146,5 +146,3 @@
     },
   });
 </script>
-<style lang="scss">
-</style>

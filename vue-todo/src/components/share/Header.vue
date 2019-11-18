@@ -16,7 +16,7 @@
   </div>
 
 </template>
-<script lang="ts">
+<script>
   export default ({
     name: 'Header',
     data() {
@@ -31,7 +31,7 @@
     methods: {
       logout() {
         localStorage.clear();
-        this.$router.replace("/login");
+        this.$router.replace('/login');
       },
       showMenu() {
         this.checkMenu = !this.checkMenu;

@@ -4,11 +4,11 @@ import router from '../router/index.js';
 
 export class todosService {
   getTodo() {
-    return firebase.firestore().collection("todos").where('userId', '==', localStorage.getItem('userId'));
+    return firebase.firestore().collection('todos').where('userId', '==', localStorage.getItem('userId'));
   }
 
   addTodo(e) {
-    const add = firebase.firestore().collection("todos").add({
+    const add = firebase.firestore().collection('todos').add({
       name: e.name,
       isCompleted: false,
       userId: localStorage.getItem('userId')
@@ -17,11 +17,11 @@ export class todosService {
   }
 
   deleteTodo(e) {
-    return firebase.firestore().collection("todos").doc(e.id).delete();
+    return firebase.firestore().collection('todos').doc(e.id).delete();
   }
 
   toggleTodo(e) {
-    const toggle = firebase.firestore().collection("todos").doc(e.id).set({
+    const toggle = firebase.firestore().collection('todos').doc(e.id).set({
       userId: localStorage.getItem('userId'),
       name: e.name,
       isCompleted: !e.isCompleted
