@@ -18,10 +18,13 @@
               <input class="input100" type="password" name="pass" v-model="confirmPassword" placeholder="Confirm Password">
               <span class="focus-input100"></span>
             </div>
-             <p class="error" v-if="checkPass">The password and confirm password must be the same</p>
+            <p class="error" v-if="checkPass">The password and confirm password must be the same</p>
             <div class="container-login100-form-btn flex-col-c">
               <button type="button" class="login100-form-btn" @click="signUp()" :disabled="checkPass">Submit</button>
-              <router-link class="login100-form-btn" to="/login">Sign in</router-link>
+            </div>
+            <div class="login-now">
+              <span>You are already in account?</span>
+              <router-link class="" to="/login"> Login Now</router-link>
             </div>
           </form>
         </div>
